@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chali"
+version = "0.1.0"
+description = "Chat CLI: a terminal dashboard for YouTube live chat and Streamlabs alerts"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "GPL-2.0-or-later" }
+dependencies = [
+  "textual>=0.58",
+  "pytchat>=0.5.5",
+  "python-socketio[asyncio_client]>=5.11",
+  "yt-dlp>=2024.3.10",
+  "windows-curses>=2.3; sys_platform == 'win32'",
+]
+
+[project.scripts]
+chali = "chali.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["chali*"]
